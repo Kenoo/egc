@@ -1,0 +1,2 @@
+# egc
+egc monorepo
