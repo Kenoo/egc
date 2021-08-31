@@ -2,6 +2,12 @@
   "packages": [
     "packages/*"
   ],
+  "useWorkspaces": true, 
+  "command": {
+    "version": {
+      "conventionalCommits": true 
+    }
+  },
   "version": "0.0.1",
   "npmClient": "yarn"
 }
