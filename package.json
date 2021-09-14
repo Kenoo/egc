@@ -5,26 +5,7 @@
     "packages/*"
   ],
   "scripts": {
-    "commit": "git-cz",
     "build": "lerna run --stream --sort build"
-  },
-  "config": {
-    "commitizen": {
-      "path": "./node_modules/cz-lerna-changelog"
-    }
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged"
-    }
-  },
-  "lint-staged": {
-    "*.(vue|js)": [
-      "prettier --write"
-    ]
-  },
-  "publishConfig": {
-    "access": "publish"
   },
   "devDependencies": {
     "@commitlint/cli": "^13.1.0",
