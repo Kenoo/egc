@@ -1,2 +1,2 @@
-const { cli } = require('./src')
-cli ();
+import {init} from './src/index';
+init();
