@@ -6,7 +6,7 @@ class Demo {
         this.lastName = lastName;
     }
     greeter() {
-        return "欢迎来到typescript的世界，hello" + this.firstName + " " + this.lastName;
+        return "欢迎来到我的世界" + this.firstName + " " + this.lastName;
     }
   }
   export default Demo;
