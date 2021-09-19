@@ -6,9 +6,7 @@ class Hello {
       this.lastName = lastName;
   }
   greeter() {
-      return "欢迎来到typescript的世界，hello" +
-       this.firstName + " " + this.lastName;
+      return "欢迎来到typescript的世界，hello" + this.firstName + " " + this.lastName;
   }
 }
-var user = new Hello("王", "小二");
-document.body.innerHTML = user.greeter();
+export default Hello;

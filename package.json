@@ -5,8 +5,8 @@
     "packages/*"
   ],
   "scripts": {
-    "tsc-build": "tsc -b",
-    "tsc-watch": "tsc -c"
+    "build": "tsc -b",
+    "dev": "yarn build --watch"
   },
   "devDependencies": {
     "@types/node": "^16.9.2",
