@@ -21,11 +21,12 @@
     "access": "public"
   },
   "scripts": {
-    "build" : "tsc -b",
-    "dev": "nodemon ./lib/main.js & yarn build --watch",
+    "build": "tsc -b",
+    "dev": "nodemon ./lib/main.js --init & yarn build --watch",
     "test": "echo \"Error: run tests from root\" && exit 1"
   },
   "dependencies": {
+    "@types/jsonfile": "^6.0.1",
     "cac": "^6.7.3"
   },
   "devDependencies": {

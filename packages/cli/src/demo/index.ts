@@ -8,5 +8,5 @@ class Demo {
     greeter() {
         return "欢迎来到我的世界" + this.firstName + " " + this.lastName;
     }
-  }
-  export default Demo;
+}
+export default Demo;

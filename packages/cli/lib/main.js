@@ -1,19 +1,19 @@
 "use strict";
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
 Object.defineProperty(exports, "__esModule", { value: true });
-var http_1 = require("http");
-var index_1 = __importDefault(require("./demo/index"));
-var server = (0, http_1.createServer)(function (req, res) {
-    res.statusCode = 200;
-    res.setHeader("Content-Type", "text/plain;charset=UTF-8");
-    var demo = new index_1.default("zhantao", "chen");
-    res.end(demo.greeter());
+var cac_1 = require("cac");
+var cli = (0, cac_1.cac)('@egc/cli');
+cli
+    .command('init', '初始化环境', { allowUnknownOptions: true })
+    .option('-l, --list', '查看配置信息')
+    .action(function (dir, options) {
+    console.log('test');
 });
-var hostname = "127.0.0.1";
-var port = 4000;
-server.listen(port, hostname, function () {
-    console.log("Server running at http://" + hostname + ":" + port + "/");
+// Listen to unknown commands
+cli.on('command:*', function () {
+    console.error('Invalid command: %s', cli.args.join(' '));
+    process.exit(1);
 });
+cli.help();
+cli.version('0.1.0');
+cli.parse();
 //# sourceMappingURL=main.js.map

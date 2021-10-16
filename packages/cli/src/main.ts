@@ -1,15 +1,21 @@
-import { createServer, Server, IncomingMessage, ServerResponse } from 'http';
-import Demo from './demo/index';
+import { cac } from 'cac';
+import EGC_Init from './init/index';
 
-const server: Server = createServer((req: IncomingMessage, res: ServerResponse) => {
-    res.statusCode = 200;
-    res.setHeader("Content-Type", "text/plain;charset=UTF-8");
-    let demo = new Demo("zhantao", "chen");
-    res.end(demo.greeter());
+import jsonfile from 'jsonfile'
+
+const cli = cac('@egc/cli');
+cli
+  .command('init', '初始化环境', {allowUnknownOptions : true})
+  .option('-l, --list', '查看配置信息')
+  .action((dir, options) => {
+    return EGC_Init.init(dir, options); 
+  })
+// Listen to unknown commands
+cli.on('command:*', () => {
+    console.error('Invalid command: %s', cli.args.join(' '))
+    process.exit(1)
 })
 
-const hostname: string = "127.0.0.1";
-const port: number = 4000;
-server.listen(port, hostname, () => {
-    console.log(`Server running at http://${hostname}:${port}/`);
-})
+cli.help()
+cli.version('0.1.0')
+cli.parse()
